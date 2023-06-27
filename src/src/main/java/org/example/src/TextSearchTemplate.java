@@ -1,4 +1,4 @@
-package org.example.SearchTemplate;
+package org.example.src;
 
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
@@ -21,62 +21,18 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
-1) First Create Search Template in Kibana interface dev tool:
-
-POST _scripts/text_search_template
-{
-  "script": {
-    "lang": "mustache",
-    "source": {
-      "query": {
-        "match": {
-          "{{field}}": "{{value}}"
-        }
-      }
-    }
-  }
-}
-
-2) To check successful creation of Search Template run following command:
-GET _scripts/text_search_template
-
-{
-  "_id": "text_search_template",
-  "found": true,
-  "script": {
-    "lang": "mustache",
-    "source": """{"query":{"match":{"{{field}}":"{{value}}"}}}""",
-    "options": {
-      "content_type": "application/json;charset=utf-8"
-    }
-  }
-}
-
-3) To use search template in Dev Tool
-
-POST kibana_sample_data_flights/_search/template
-{
-  "id": "text_search_template",
-  "params": {
-    "field": "_id",
-    "value": "up6ezIUBhLt9fMTM-VjE"
-  }
-}
-* */
-
-public class ElasticHighLevelTextSearchTemplateClientHTTP {
+public class TextSearchTemplate {
 
     public static void main(String[] args) {
         // Set up the Elasticsearch client connection
         RestClientBuilder builder = RestClient.builder(
-                new HttpHost("115.68.193.101", 19200, "http")
+                new HttpHost("ELASTIC-REMOTE-SERVER-IP-ADDRESS", ELASTIC-PORT, "http")
         );
 
         // Configure credentials
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(AuthScope.ANY,
-                new UsernamePasswordCredentials("khsystems", "qwer12#$"));
+                new UsernamePasswordCredentials("USERNAME", "PASSWORD"));
         builder.setHttpClientConfigCallback(httpClientBuilder ->
                 httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider));
 
@@ -85,19 +41,15 @@ public class ElasticHighLevelTextSearchTemplateClientHTTP {
 
         //  search template request
         SearchTemplateRequest request = new SearchTemplateRequest();
-        request.setRequest(new SearchRequest("kibana_sample_data_flights")); //  index name
+        request.setRequest(new SearchRequest("ELASTIC-INDEX-NAME")); //  index name
 
         request.setScriptType(ScriptType.STORED);
-        request.setScript("text_search_template"); // <<<<<<  search template
+        request.setScript("SEARCH-TEMPLATE-NAME"); // <<<<<<  search template
 
         //  template parameters
-        Map<String, Object> params = new HashMap<>();
-
-        /**********************************************************************/
-        params.put("field", "OriginWeather"); //  field name
-        params.put("value", "Sunny"); // search value
-        /**********************************************************************/
-
+        Map<String, Object> params = new HashMap<>();     
+        params.put("field", "fieldName"); //  field name
+        params.put("value", "fieldValue"); // search value
         request.setScriptParams(params);
 
         try {
