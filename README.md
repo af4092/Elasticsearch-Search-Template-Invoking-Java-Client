@@ -26,3 +26,18 @@ PUT _scripts/test-search-template
   }
 }
 ```
+
+### [Validate a search template](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html#validate-search-template)
+- To test a template with different params, use the render search template API.
+```
+POST _render/template
+{
+  "id": "test-search-template",
+  "params": {
+    "query_string": "Test The Template",
+    "from": 20,
+    "size": 10
+  }
+}
+```
+
