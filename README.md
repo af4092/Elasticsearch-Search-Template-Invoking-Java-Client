@@ -55,3 +55,5 @@ GET sample-index/_search/template
   }
 }
 ```
+### [Source Code Explanation](https://github.com/af4092/Elasticsearch-Search-Template-Invoking-Java-Client/blob/main/src/src/main/java/org/example/src/TextSearchTemplate.java)
+- Source code is located in the following path: `src\main\java\org\example\src\TextSearchTemplate.java`
