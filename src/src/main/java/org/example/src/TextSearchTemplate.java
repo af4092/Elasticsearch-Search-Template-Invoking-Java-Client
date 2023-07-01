@@ -44,7 +44,7 @@ public class TextSearchTemplate {
         request.setRequest(new SearchRequest("ELASTIC-INDEX-NAME")); //  index name
 
         request.setScriptType(ScriptType.STORED);
-        request.setScript("Test-Search-Template"); // <<<<<<  search template
+        request.setScript("test-search-template"); // <<<<<<  search template
 
         //  template parameters
         Map<String, Object> params = new HashMap<>();     
