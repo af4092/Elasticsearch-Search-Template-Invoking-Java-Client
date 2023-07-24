@@ -61,7 +61,7 @@ GET sample-index/_search/template
   - The code demonstrates the usage of the Elasticsearch `High-Level REST Client` to perform a search using a search template.
   - The code sets up the Elasticsearch client connection by creating a `RestClientBuilder` instance and specifying the remote server's IP address, port, and protocol (HTTP).
   - Credentials are configured using the `BasicCredentialsProvider` and the provided username and password.
-  - The `RestHighLevelClient` is created using the configured RestClientBuilder.
+  - The `RestHighLevelClient` is created using the configured `RestClientBuilder`.
   - A `SearchTemplateRequest` object is created to define the search template request.
   - The `SearchRequest` is set on the SearchTemplateRequest, specifying the index name where the search will be performed.
   - The script type is set to `ScriptType.STORED`, indicating that the search template is stored on the Elasticsearch server.
