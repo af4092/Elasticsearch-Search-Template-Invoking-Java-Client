@@ -29,7 +29,7 @@ PUT _scripts/test-search-template
 ```
 
 ### [Validate a search template](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html#validate-search-template)
-- To test the template with different params, use the render search template API.
+- To test the template with different parameters, use the render search template API.
 ```
 POST _render/template
 {
