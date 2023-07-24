@@ -43,7 +43,7 @@ POST _render/template
 ```
 
 ### [Run a templated search](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html#run-templated-search)
-- To run a search with a search template, use the search template API. You can specify different parameterss with each request.
+- To run a search with a search template, use the search template API. You can specify different parameters with each request.
 ```
 GET sample-index/_search/template
 {
