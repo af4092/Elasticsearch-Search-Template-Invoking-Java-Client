@@ -74,4 +74,4 @@ GET sample-index/_search/template
   - The hits (search results) are retrieved from the search response using the `getHits` method.
   - The code iterates over the hits using a for loop and prints the source of each hit using `getSourceAsString`.
   - The program handles `IOException` exceptions that may occur during the execution of the Elasticsearch operations and prints the stack trace if an exception occurs.
-  - Finally, the `close method` is called on the RestHighLevelClient to release the resources.
+  - Finally, the `close method` is called on the `RestHighLevelClient` to release the resources.
