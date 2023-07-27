@@ -68,7 +68,7 @@ GET sample-index/_search/template
   - The name of the search template is set using the `setScript` method. In our case, it is set to "test-search-template".
   - Template parameters are defined using a `HashMap`. In the example, the field name and value are specified as parameters.
   - The template parameters are set on the SearchTemplateRequest using the `setScriptParams` method.
-  - The search is executed by calling the `client.searchTemplate` method, passing the SearchTemplateRequest and default request options.
+  - The search is executed by calling the `client.searchTemplate` method, passing the `SearchTemplateRequest` and default request options.
   - The response is obtained as a `SearchTemplateResponse`.
   - The search response is extracted from the template response using the `getResponse` method.
   - The hits (search results) are retrieved from the search response using the `getHits` method.
